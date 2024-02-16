@@ -46,3 +46,7 @@ class Controller:
         # check if controller name matches class in dict
         scaled_input = command_actions * self.scale_input
         return self.controller(robot_state, scaled_input)
+    
+    def load_sim_params(self, sim):
+        self.controller.g = sim.sim_params.gravity.z
+        self.controller.robot_mass = sim.robot_mass
